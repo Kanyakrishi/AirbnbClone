@@ -2,6 +2,7 @@ import Banner from "@/components/Banner";
 import Header from "@/components/Header";
 import SmallCard from "@/components/SmallCard";
 import MediumCard from "@/components/MediumCard";
+import Footer from "@/components/Footer";
 import exploreData from "app/exploreData.json";
 import liveAnywhereData from "app/liveAnywhereData.json";
 import LargeCard from "@/components/LargeCard";
@@ -37,12 +38,14 @@ export default function Home() {
           </div>
         </section>
 
-        <LargeCard img="https://links.papareact.com/4cj"
-        title="The greatest outdoors"
-        description="Wishlists curated by KANYA!"
-        buttonText="Get Inspired" />
-
+        <LargeCard
+          img="https://links.papareact.com/4cj"
+          title="The greatest outdoors"
+          description="Wishlists curated by KANYA!"
+          buttonText="Get Inspired"
+        />
       </main>
+      <Footer />
     </div>
   );
 }

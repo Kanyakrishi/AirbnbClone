@@ -1,0 +1,7 @@
+git fetch origin
+git merge origin/main 
+git rebase origin/main 
+resolve conflicts if any and add 
+git push 
+
+check if upstream branch is set --> git remote -v 

@@ -6,8 +6,15 @@ import Footer from "@/components/Footer";
 import exploreData from "app/exploreData.json";
 import liveAnywhereData from "app/liveAnywhereData.json";
 import LargeCard from "@/components/LargeCard";
+import axios from "axios";
+import pLimit from "p-limit";
+
+const maxRetries = 3; // Maximum number of retries
+const retryDelay = 1000; // Delay between retries in milliseconds
+const limit = pLimit(1); // Allow only one concurrent request
 
 export default function Home() {
+  // console.log("****--------------------**", explore);
   return (
     <div className="">
       <head>
@@ -49,3 +56,41 @@ export default function Home() {
     </div>
   );
 }
+
+// async function fetchDataWithRetries() {
+//   const axiosInstance = axios.create({
+//     baseURL: "https://links.papareact.com/pyp",
+//     // Other axios configuration options here...
+//   });
+
+  
+//   let lastError = null;
+
+//   for (let retryCount = 0; retryCount < maxRetries; retryCount++) {
+//     try {
+//       const response = await axiosInstance.get("/");
+//       return response.data;
+//     } catch (error) {
+//       lastError = error;
+//       await new Promise((resolve) => setTimeout(resolve, retryDelay));
+//     }
+//   }
+
+//   throw lastError; // If all retries fail, throw the last error
+// }
+
+// export async function generateStaticParams() {
+//   let explore = null;
+
+//   try {
+//     explore = await limit(() => fetchDataWithRetries());
+//   } catch (error) {
+//     throw error; // Propagate the error if it occurs
+//   }
+
+//   return {
+//     props: {
+//       explore: explore,
+//     },
+//   };
+// }
